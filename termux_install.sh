@@ -1,5 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/env bash
-
+# Install VNC desktop for Android Termux
 apt-get install -y git python3 openssh wget x11-repo
 
 rm $PREFIX/etc/apt/sources.list.d/termux-desktop-xfce.list
@@ -15,10 +15,9 @@ wget https://github.com/Yisus7u7/termux-desktop-xfce/releases/download/desktop-5
 tar -xvf data.tar.xz
 rm data.tar.xz
 
+mkdir -p $HOME/.config
 wget -L https://Yisus7u7.github.io/mirrors/scripts/user-dirs.dirs
-
 chmod +x $HOME/user-dirs.dirs 
-
 mv $HOME/user-dirs.dirs $HOME/.config/user-dirs.dirs
 
 
