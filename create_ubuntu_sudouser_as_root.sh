@@ -3,7 +3,6 @@
 
 package_list=('nemo' 'sudo' 'wget' 'git' 'bash-completion' 'libnotify-bin')
 for package in "${package_list[@]}"; do
-  source 
   if ! which "${package}"; then
     apt-get install -y "${package}"
   fi
@@ -17,8 +16,12 @@ adduser "${username}"
 usermod -aG sudo "${username}"
 echo "${username}  ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/${username}
 
-if ! cat /etc/bash.bashrc | grep 'export DISPLAY='; then
-  echo "export DISPLAY=\"$(ip a | grep 'inet ' | grep 'wlan0' | cut -d '/' -f1 | rev | cut -d ' ' -f1 | rev):1\"" >> /etc/bash.bashrc
+if [ -d /data/data/com.termux/files/home/.vnc ]; then
+  if ! cat /etc/bash.bashrc | grep 'export DISPLAY='; then
+  ip_adresses="$(ip a | grep -Eo "inet ([0-9]{1,3}\.){3}[0-9]{1,3}" | cut -d " " -f2 | tail -1)"
+  echo "export DISPLAY=\"${ip_adresses}:1\"" >> /etc/bash.bashrc
+  fi
 fi
+
 
 #su "${username}"

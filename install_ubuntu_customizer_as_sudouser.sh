@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-# To install Customizer inside Ubuntu's User in Termux App
+# To install Customizer inside Ubuntu's User session in Termux App
 
 package_list=('wget' 'git' 'gedit' 'bash-completion' 'gnome-calculator')
 for package in "${package_list[@]}"; do
-  source 
   if ! which "${package}"; then
     apt-get install -y "${package}"
   fi
