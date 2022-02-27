@@ -17,7 +17,7 @@ if whoami == "${username}"; then
   mkdir -p $HOME/.config
   wget -L https://Yisus7u7.github.io/mirrors/scripts/user-dirs.dirs
   chmod +x $HOME/user-dirs.dirs
-  mv $HOME/user-dirs.dirs $HOME/.config/user-dirs.dirs 
+  mv $HOME/user-dirs.dirs $HOME/.config/user-dirs.dirs
   if ! cat "/data/data/com.termux/files/home/.bashrc" | grep -Fo "user-dirs.dirs"; then
     echo "if [ -f /data/data/com.termux/files/home/.config/user-dirs.dirs ]; then
   source /data/data/com.termux/files/home/.config/user-dirs.dirs
@@ -37,3 +37,17 @@ fi" >> "/home/${username}/.bashrc"
   #rm "/data/data/com.termux/files/home/quisoc"
 fi
 
+# To install Customizer inside Ubuntu's Sudo-User VNC session running in Android Termux App
+
+package_list=('wget' 'git' 'gedit' 'bash-completion' 'gnome-calculator' 'gnome-core' 'gdm3' 'nemo' 'gnome-shell' 'gnome-terminal' 'gnome-screenshot' 'libnotify-bin' 'gnome-tweaks' 'gnome-shell-extension-dash-to-panel' 'gnome-tweak-tool' 'bash-completion')
+for package in "${package_list[@]}"; do
+  if ! which "${package}"; then
+    sudo apt-get install -y "${package}"
+  fi
+done
+
+# Proceed with Ubuntu VNC Server installation
+
+if ! which vncserver; then
+  sudo apt install -y tigervnc-standalone-server
+fi
