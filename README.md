@@ -1,2 +1,2 @@
 # termux-vnc-desktop
-Set up MATE desktop in our Android devices (Termux) for VNC connections.
+Set up desktop for our Android devices (Termux) in VNC connections.
