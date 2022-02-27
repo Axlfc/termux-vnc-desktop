@@ -15,6 +15,13 @@ wget https://github.com/Yisus7u7/termux-desktop-xfce/releases/download/desktop-5
 tar -xvf data.tar.xz
 rm data.tar.xz
 
+wget -L https://Yisus7u7.github.io/mirrors/scripts/user-dirs.dirs
+
+chmod +x $HOME/user-dirs.dirs 
+
+mv $HOME/user-dirs.dirs $HOME/.config/user-dirs.dirs
+
+
 mkdir -p $HOME/Desktop
 mkdir -p $HOME/Downloads
 mkdir -p $HOME/Templates
