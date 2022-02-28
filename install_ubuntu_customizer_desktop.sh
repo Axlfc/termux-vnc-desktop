@@ -15,11 +15,11 @@ if whoami == "${username}"; then
     fi
   done
 
-  cd $HOME
-  mkdir -p $HOME/.config
+  cd /data/data/com.termux/files/home/
+  mkdir -p /data/data/com.termux/files/home/.config
   wget -L https://Yisus7u7.github.io/mirrors/scripts/user-dirs.dirs
-  chmod +x $HOME/user-dirs.dirs
-  mv $HOME/user-dirs.dirs $HOME/.config/user-dirs.dirs
+  chmod +x /data/data/com.termux/files/home/user-dirs.dirs
+  mv /data/data/com.termux/files/home/user-dirs.dirs /data/data/com.termux/files/home/.config/user-dirs.dirs
   if ! cat "/data/data/com.termux/files/home/.bashrc" | grep -Fo "user-dirs.dirs"; then
     echo "if [ -f /data/data/com.termux/files/home/.config/user-dirs.dirs ]; then
   source /data/data/com.termux/files/home/.config/user-dirs.dirs
@@ -31,7 +31,7 @@ fi" >> "/home/${username}/.bashrc"
   fi
 
   bash
-  cd $HOME
+  cd /data/data/com.termux/files/home/
   # To install Customizer inside Ubuntu's Sudo-User $HOME folder for the VNC session
 
   git clone https://github.com/AleixMT/Linux-Auto-Customizer
@@ -50,6 +50,6 @@ fi" >> "/home/${username}/.bashrc"
   dbus-launch --exit-with-session gnome-session &
   " > /data/data/com.termux/files/home/.vnc/xstartup
   fi
-  
+
   sudo apt-get upgrade -y
 fi

@@ -21,32 +21,30 @@ apt-get install -y xfce4 tigervnc xfce4-goodies termux-desktop-xfce breeze-curso
 apt-get upgrade -y
 
 
-cd $HOME
+cd /data/data/com.termux/files/home/
 wget https://github.com/Yisus7u7/termux-desktop-xfce/releases/download/desktop-5.0.3/data.tar.xz
 tar -xvf data.tar.xz
 rm data.tar.xz
 
-mkdir -p $HOME/.config
+mkdir -p /data/data/com.termux/files/home/.config
 wget -L https://Yisus7u7.github.io/mirrors/scripts/user-dirs.dirs
-chmod +x $HOME/user-dirs.dirs 
-mv $HOME/user-dirs.dirs $HOME/.config/user-dirs.dirs
+chmod +x /data/data/com.termux/files/home/user-dirs.dirs
+mv /data/data/com.termux/files/home/user-dirs.dirs /data/data/com.termux/files/home/.config/user-dirs.dirs
 
-# source $HOME/.config/user-dirs.dirs file in ~/.bashrc
+mkdir -p /data/data/com.termux/files/home/Desktop
+mkdir -p /data/data/com.termux/files/home/Downloads
+mkdir -p /data/data/com.termux/files/home/Templates
+mkdir -p /data/data/com.termux/files/home/Public
+mkdir -p /data/data/com.termux/files/home/Documents
+mkdir -p /data/data/com.termux/files/home/Pictures
+mkdir -p /data/data/com.termux/files/home/Videos
 
-mkdir -p $HOME/Desktop
-mkdir -p $HOME/Downloads
-mkdir -p $HOME/Templates
-mkdir -p $HOME/Public
-mkdir -p $HOME/Documents
-mkdir -p $HOME/Pictures
-mkdir -p $HOME/Videos
-
-if ! cat "$HOME/.bashrc" | grep -Eo "export DISPLAY=:1"; then 
-	echo "export DISPLAY=:1" >> "$HOME/.bashrc"
+if ! cat "/data/data/com.termux/files/home/.bashrc" | grep -Eo "export DISPLAY=:1"; then
+	echo "export DISPLAY=:1" >> "/data/data/com.termux/files/home/.bashrc"
 fi
 
 
-ln -s $HOME/storage/music Music
+ln -s /data/data/com.termux/files/home/storage/music Music
 
 # To install Customizer in Termux Android App
 package_list=('wget' 'git' 'bash-completion')
