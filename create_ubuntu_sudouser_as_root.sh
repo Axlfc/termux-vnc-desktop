@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Run as root user in Ubuntu inside Termux
-
+apt-get update -y
 package_list=('nemo' 'sudo' 'wget' 'git' 'bash-completion' 'libnotify-bin')
 for package in "${package_list[@]}"; do
   if ! which "${package}"; then
@@ -21,7 +21,11 @@ if [ -d /data/data/com.termux/files/home/.vnc ]; then
   ip_adresses="$(ip a | grep -Eo "inet ([0-9]{1,3}\.){3}[0-9]{1,3}" | cut -d " " -f2 | tail -1)"
   echo "export DISPLAY=\"${ip_adresses}:1\"" >> /etc/bash.bashrc
   fi
+else
+  if ! which vncserver; then
+    apt-get install -y tigervnc-standalone-server
+  fi
 fi
-
+apt-get upgrade -y
 
 #su "${username}"
