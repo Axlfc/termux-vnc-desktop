@@ -46,6 +46,8 @@ wget -L https://Yisus7u7.github.io/mirrors/scripts/user-dirs.dirs
 chmod +x /data/data/com.termux/files/home/user-dirs.dirs
 mv /data/data/com.termux/files/home/user-dirs.dirs /data/data/com.termux/files/home/.config/user-dirs.dirs
 
+touch "/data/data/com.termux/files/home/.profile"
+
 if ! cat "/data/data/com.termux/files/home/.bashrc" | grep -Fo "user-dirs.dirs"; then
   echo "if [ -f /data/data/com.termux/files/home/.config/user-dirs.dirs ]; then
   source /data/data/com.termux/files/home/.config/user-dirs.dirs
