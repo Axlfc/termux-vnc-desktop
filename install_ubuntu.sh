@@ -26,3 +26,10 @@ if [ -f "/data/data/com.termux/files/home/.bash_aliases" ]; then
     echo "alias ubuntu='bash /data/data/com.termux/files/home/startubuntu.sh'" >> "/data/data/com.termux/files/home/.bash_aliases"
   fi
 fi
+
+if [ ! -f "/data/data/com.termux/files/home/.bashrc" ]; then
+  touch "/data/data/com.termux/files/home/.bashrc"
+  if ! cat "/data/data/com.termux/files/home/.bashrc" | grep -Fqo "source /data/data/com.termux/files/home/.bash_aliases"; then
+    echo "source /data/data/com.termux/files/home/.bash_aliases" >> "/data/data/com.termux/files/home/.bash_aliases"
+  fi
+fi
