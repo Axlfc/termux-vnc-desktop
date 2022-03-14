@@ -42,7 +42,7 @@ mv /data/data/com.termux/files/home/user-dirs.dirs /data/data/com.termux/files/h
 if ! cat "/data/data/com.termux/files/home/.bashrc" | grep -Fo "user-dirs.dirs"; then
   echo "if [ -f /data/data/com.termux/files/home/.config/user-dirs.dirs ]; then
   source /data/data/com.termux/files/home/.config/user-dirs.dirs
-fi" >> "/home/${username}/.bashrc"
+fi" >> "/data/data/com.termux/files/home/.bashrc"
 fi
 
 if ! cat "/data/data/com.termux/files/home/.bashrc" | grep -Fo "HOME="; then
