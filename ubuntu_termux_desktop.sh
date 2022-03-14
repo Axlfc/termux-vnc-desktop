@@ -8,6 +8,8 @@ for package in "${package_list[@]}"; do
   fi
 done
 
+apt-get purge -y network-manager
+
 if [ -f "/data/data/com.termux/files/home/quisoc" ]; then
   username="$(cat /data/data/com.termux/files/home/quisoc)"
 else
@@ -74,6 +76,7 @@ export XDG_MENU_PREFIX="gnome-flashback-"
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 xsetroot -solid grey
 vncconfig -iconic &
+gnome-terminal &
 
 dbus-launch --exit-with-session gnome-session --builtin --session=gnome-flashback-metacity --disable-acceleration-check --debug &
 '
