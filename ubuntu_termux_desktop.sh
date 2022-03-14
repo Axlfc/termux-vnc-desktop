@@ -31,6 +31,8 @@ if [ -d /data/data/com.termux/files/home/.vnc ]; then
 else
   if ! which vncserver; then
     apt-get install -y tightvncserver
+    ip_adresses="$(ip a | grep -Eo "inet ([0-9]{1,3}\.){3}[0-9]{1,3}" | cut -d " " -f2 | tail -1)"
+    echo "export DISPLAY=\"${ip_adresses}:1\"" >> /etc/bash.bashrc
   fi
 fi
 
