@@ -9,6 +9,9 @@ for package in "${package_list[@]}"; do
 done
 
 apt-get purge -y network-manager
+## Fix Nameserver 
+echo "nameserver 1.1.1.1" > /etc/resolv.conf
+
 
 if [ -f "/data/data/com.termux/files/home/quisoc" ]; then
   username="$(cat /data/data/com.termux/files/home/quisoc)"
