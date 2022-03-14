@@ -27,8 +27,8 @@ if [ -f "/data/data/com.termux/files/home/.bash_aliases" ]; then
   fi
 fi
 
-if [ ! -f "/data/data/com.termux/files/home/.bashrc" ]; then
-  touch "/data/data/com.termux/files/home/.bashrc"
+touch "/data/data/com.termux/files/home/.bashrc"
+if [ -f "/data/data/com.termux/files/home/.bashrc" ]; then
   if ! cat "/data/data/com.termux/files/home/.bashrc" | grep -Fqo "source /data/data/com.termux/files/home/.bash_aliases"; then
     echo "source /data/data/com.termux/files/home/.bash_aliases" >> "/data/data/com.termux/files/home/.bash_aliases"
   fi
