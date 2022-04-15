@@ -10,11 +10,16 @@ done
 
 cd /data/data/com.termux/files/home
 
+'''
 if [ ! -f /data/data/com.termux/files/home/startubuntu.sh ]; then
   git clone https://github.com/MFDGaming/ubuntu-in-termux.git
   chmod +x ubuntu-in-termux/ubuntu.sh
   ./ubuntu-in-termux/ubuntu.sh -y
 fi
+'''
+
+# Install ubuntu
+proot-distro install ubuntu
 
 if [ ! -f "/data/data/com.termux/files/home/quisoc" ]; then
   echo "$(whoami)" > "/data/data/com.termux/files/home/quisoc"
@@ -33,3 +38,5 @@ if [ -f "/data/data/com.termux/files/home/.bashrc" ]; then
     echo "source /data/data/com.termux/files/home/.bash_aliases" >> "/data/data/com.termux/files/home/.bash_aliases"
   fi
 fi
+
+echo "proot-distro login --user $(whoami) ubuntu" > p
