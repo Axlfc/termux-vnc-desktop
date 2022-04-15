@@ -85,7 +85,8 @@ sudo systemctl start gdm
 
 mkdir -p /data/data/com.termux/files/home/.vnc
 if [ ! -f /data/data/com.termux/files/home/.vnc/xstartup ]; then
-  cp /data/data/com.termux/files/home/.vnc/xstartup /data/data/com.termux/files/home/.vnc/xstartup.bak
+touch /data/data/com.termux/files/home/.vnc/xstartup
+  # cp /data/data/com.termux/files/home/.vnc/xstartup /data/data/com.termux/files/home/.vnc/xstartup.bak
   xstartup_text='#!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
@@ -120,6 +121,3 @@ user_customizer_package_list=("prompt" "gitprompt" "history_optimization" "termi
 for package in "${user_customizer_package_list[@]}"; do
   customizer-install -v -o "${package}"
 done
-
-# Reinstall MATE desktop using tasksel
-# sudo tasksel install ubuntu-mate-core
