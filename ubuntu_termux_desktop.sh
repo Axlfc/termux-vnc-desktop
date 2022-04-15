@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Run as root user in Ubuntu in Termux
 apt-get update -y
-package_list=('dialog' 'nemo' 'nano' 'sudo' 'wget' 'git' 'bash-completion' 'libnotify-bin' 'gedit' 'ubuntu-gnome-desktop' 'gnome-calculator' 'gnome-core' 'gdm3' 'gnome-shell' 'gnome-terminal' 'gnome-screenshot' 'gnome-tweaks' 'gnome-shell-extension-dash-to-panel' 'gnome-tweak-tool')
+package_list=('dialog' 'nemo' 'nano' 'sudo' 'wget' 'git' 'bash-completion' 'libnotify-bin' 'gedit' 'ubuntu-gnome-desktop' 'gnome-calculator' 'gnome-core' 'gdm3' 'gnome-shell' 'gnome-terminal' 'gnome-screenshot' 'gnome-tweaks' 'gnome-shell-extension-dash-to-panel' 'gnome-tweak-tool' 'mate-desktop')
 for package in "${package_list[@]}"; do
   if ! which "${package}"; then
     apt-get install -y "${package}"
@@ -30,7 +30,7 @@ if [ -d /data/data/com.termux/files/home/.vnc ]; then
   fi
 else
   if ! which vncserver; then
-    apt-get install -y tightvncserver
+    apt-get install -y tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer
     ip_adresses="$(ip a | grep -Eo "inet ([0-9]{1,3}\.){3}[0-9]{1,3}" | cut -d " " -f2 | tail -1)"
     echo "export DISPLAY=\"${ip_adresses}:1\"" >> /etc/bash.bashrc
   fi
