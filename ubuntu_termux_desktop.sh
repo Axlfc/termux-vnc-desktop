@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Run as root user in Ubuntu in Termux
 apt-get update -y
-package_list=('dialog' 'nemo' 'nano' 'sudo' 'wget' 'git' 'bash-completion' 'libnotify-bin' 'gedit' 'ubuntu-gnome-desktop' 'gnome-calculator' 'gnome-core' 'gdm3' 'gnome-shell' 'gnome-terminal' 'gnome-screenshot' 'gnome-tweaks' 'gnome-shell-extension-dash-to-panel' 'gnome-tweak-tool' 'mate-desktop')
+package_list=('dialog' 'nemo' 'nano' 'sudo' 'wget' 'git' 'bash-completion' 'libnotify-bin' 'gedit' 'ubuntu-gnome-desktop' 'gnome-calculator' 'gnome-core' 'gdm3' 'gnome-shell' 'gnome-terminal' 'gnome-screenshot' 'gnome-tweaks' 'gnome-shell-extension-dash-to-panel' 'gnome-tweak-tool' 'mate-desktop' 'net-tools' 'iputils-ping')
 for package in "${package_list[@]}"; do
   if ! which "${package}"; then
     apt-get install -y "${package}"
@@ -11,6 +11,20 @@ done
 apt-get purge -y network-manager
 ## Fix Nameserver 
 echo "nameserver 1.1.1.1" > /etc/resolv.conf
+
+# change ubuntu's hostname, it is not 'localhost' it will instead be 'ubuntu-termux'
+# Edit /etc/hostname File
+if [ ! -f /etc/hostname ]; then
+  touch /etc/hostname
+  echo "ubuntu-termux" > /etc/hostname
+fi
+
+# Edit Your /etc/hosts
+if [ ! -f /etc/hosts ]; then
+  touch /etc/hosts
+  echo "127.0.0.1 localhost
+127.0.1.1 ubuntu-termux" > /etc/hosts
+fi
 
 
 if [ -f "/data/data/com.termux/files/home/quisoc" ]; then
@@ -30,7 +44,7 @@ if [ -d /data/data/com.termux/files/home/.vnc ]; then
   fi
 else
   if ! which vncserver; then
-    apt-get install -y tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer
+    apt-get install -y tightvncserver
     ip_adresses="$(ip a | grep -Eo "inet ([0-9]{1,3}\.){3}[0-9]{1,3}" | cut -d " " -f2 | tail -1)"
     echo "export DISPLAY=\"${ip_adresses}:1\"" >> /etc/bash.bashrc
   fi
@@ -82,6 +96,7 @@ export XDG_MENU_PREFIX="gnome-flashback-"
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 xsetroot -solid grey
+mate-session &
 vncconfig -iconic &
 gnome-terminal &
 
@@ -105,4 +120,5 @@ for package in "${user_customizer_package_list[@]}"; do
   customizer-install -v -o "${package}"
 done
 
-
+# Reinstall MATE desktop using tasksel
+# sudo tasksel install ubuntu-mate-core
