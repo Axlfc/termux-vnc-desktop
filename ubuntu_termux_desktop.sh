@@ -9,19 +9,20 @@ for package in "${package_list[@]}"; do
 done
 
 apt-get purge -y network-manager
+
 ## Fix Nameserver 
-echo "nameserver 1.1.1.1" > /etc/resolv.conf
+if [ ! -f /etc/resolv.conf ]; then
+  echo "nameserver 1.1.1.1" > /etc/resolv.conf
+fi
 
 # change ubuntu's hostname, it is not 'localhost' it will instead be 'ubuntu-termux'
 # Edit /etc/hostname File
 if [ ! -f /etc/hostname ]; then
-  touch /etc/hostname
   echo "ubuntu-termux" > /etc/hostname
 fi
 
 # Edit Your /etc/hosts
 if [ ! -f /etc/hosts ]; then
-  touch /etc/hosts
   echo "127.0.0.1 localhost
 127.0.1.1 ubuntu-termux" > /etc/hosts
 fi
@@ -39,9 +40,9 @@ echo "${username}  ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/${username}
 
 if [ -d /data/data/com.termux/files/home/.vnc ]; then
   if ! cat /etc/bash.bashrc | grep 'export DISPLAY='; then
-  ip_adresses="$(ip a | grep -Eo "inet ([0-9]{1,3}\.){3}[0-9]{1,3}" | cut -d " " -f2 | tail -1)"
+    ip_adresses="$(ip a | grep -Eo "inet ([0-9]{1,3}\.){3}[0-9]{1,3}" | cut -d " " -f2 | tail -1)"
   echo "export DISPLAY=\"${ip_adresses}:1\"" >> /etc/bash.bashrc
-  fi
+    fi
 else
   if ! which vncserver; then
     apt-get install -y tightvncserver
@@ -96,11 +97,11 @@ export XDG_MENU_PREFIX="gnome-flashback-"
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 xsetroot -solid grey
-mate-session &
 vncconfig -iconic &
 gnome-terminal &
 
 dbus-launch --exit-with-session gnome-session --builtin --session=gnome-flashback-metacity --disable-acceleration-check --debug &
+mate-session
 '
   echo "${xstartup_text}" > /data/data/com.termux/files/home/.vnc/xstartup
   sudo chmod +x /data/data/com.termux/files/home/.vnc/xstartup
