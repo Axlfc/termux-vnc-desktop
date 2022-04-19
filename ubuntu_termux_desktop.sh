@@ -10,6 +10,10 @@ done
 
 apt-get purge -y network-manager
 
+#pulseaudio (*alsa) 
+#OUTPUT: OK
+#INPUT: ?
+
 ## Fix Nameserver 
 if [ ! -f /etc/resolv.conf ]; then
   echo "nameserver 1.1.1.1" > /etc/resolv.conf
