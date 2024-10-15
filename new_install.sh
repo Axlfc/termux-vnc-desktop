@@ -30,4 +30,7 @@ cd /data/data/com.termux/files/home/
 # To install Customizer inside Ubuntu's Sudo-User $HOME folder for the VNC session
 
 git clone https://github.com/AleixMT/Linux-Auto-Customizer
+cd Linux-Auto-Customizer
+git checkout develop
+cd ..
 sudo bash Linux-Auto-Customizer/src/core/install.sh -v -o customizer
