@@ -55,4 +55,7 @@ else
   fi
 fi
 
+echo "export XDG_SESSION_DESKTOP=gnome" >> /etc/bash.bashrc
+echo "export DESKTOP_SESSION=gnome" >> /etc/bash.bashrc
+
 su "${username}"
