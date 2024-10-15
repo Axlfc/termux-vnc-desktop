@@ -5,11 +5,12 @@ mkdir -p /data/data/com.termux/files/home/.vnc
 if [ ! -f /data/data/com.termux/files/home/.vnc/xstartup ]; then
 touch /data/data/com.termux/files/home/.vnc/xstartup
   # cp /data/data/com.termux/files/home/.vnc/xstartup /data/data/com.termux/files/home/.vnc/xstartup.bak
+  # export XDG_CURRENT_DESKTOP="GNOME-Flashback:GNOME"
   xstartup_text='#!/bin/sh
 unset SESSION_MANAGER
 unset DBUS_SESSION_BUS_ADDRESS
 export XKL_XMODMAP_DISABLE=1
-export XDG_CURRENT_DESKTOP="GNOME-Flashback:GNOME"
+export XDG_CURRENT_DESKTOP="GNOME-Flashback:Unity"
 export XDG_MENU_PREFIX="gnome-flashback-"
 
 # Start Gnome 3 Desktop
