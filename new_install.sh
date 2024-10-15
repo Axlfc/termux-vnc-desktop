@@ -25,7 +25,7 @@ if ! cat "/data/data/com.termux/files/home/.bashrc" | grep -Fo "HOME="; then
   echo "HOME='/data/data/com.termux/files/home'" >> "/home/${username}/.bashrc"
 fi
 
-bash
+# bash
 cd /data/data/com.termux/files/home/
 # To install Customizer inside Ubuntu's Sudo-User $HOME folder for the VNC session
 
