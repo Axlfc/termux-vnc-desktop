@@ -72,7 +72,7 @@ _A bit of a bit of more waiting..._
 
 (You can kill the vnc session with the command ```vncserver -kill :1``` 
 
-Access your desktop via a VNC viewer app (Example: Remote Ripple in Windows) to the IP of your device::5901
+Access your desktop via a VNC viewer app (Example: Remote Ripple in Windows) to the ```{IP Address of your device}::5901```
 
 In your own phone you can use the app AVNC and go to the localhost::5901
 
