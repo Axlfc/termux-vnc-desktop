@@ -45,13 +45,13 @@ echo "${username}  ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/${username}
 if [ -d /data/data/com.termux/files/home/.vnc ]; then
   if ! cat /etc/bash.bashrc | grep 'export DISPLAY='; then
     ip_adresses="$(ip a | grep -Eo "inet ([0-9]{1,3}\.){3}[0-9]{1,3}" | cut -d " " -f2 | tail -1)"
-  echo "export DISPLAY=\"${ip_adresses}:1\"" >> /etc/bash.bashrc
+  echo "export DISPLAY=\"${ip_adresses}:0\"" >> /etc/bash.bashrc
     fi
 else
   if ! which vncserver; then
     apt-get install -y tightvncserver
     ip_adresses="$(ip a | grep -Eo "inet ([0-9]{1,3}\.){3}[0-9]{1,3}" | cut -d " " -f2 | tail -1)"
-    echo "export DISPLAY=\"${ip_adresses}:1\"" >> /etc/bash.bashrc
+    echo "export DISPLAY=\"${ip_adresses}:0\"" >> /etc/bash.bashrc
   fi
 fi
 
