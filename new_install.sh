@@ -8,6 +8,7 @@ username="$(whoami)"
 cd /data/data/com.termux/files/home/
 
 mkdir -p /data/data/com.termux/files/home/.config
+mkdir -p /data/data/com.termux/files/home/Templates
 
 wget -L https://Yisus7u7.github.io/mirrors/scripts/user-dirs.dirs
 chmod +x /data/data/com.termux/files/home/user-dirs.dirs
