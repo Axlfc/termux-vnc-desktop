@@ -66,14 +66,14 @@ _A bit of a bit of more waiting..._
 
 ## Final steps, start your VNC Server
 
-```vncserver :1 -geometry 1280x1024```
+```vncserver :0 -geometry 1280x1024```
 
 - Set your password for VNC
 
-(You can kill the vnc session with the command ```vncserver -kill :1``` 
+(You can kill the vnc session with the command ```vncserver -kill :0``` 
 
-Access your desktop via a VNC viewer app (Example: Remote Ripple in Windows) to the ```{IP Address of your device}::5901```
+Access your desktop via a VNC viewer app (Example: Remote Ripple in Windows) to the ```{IP Address of your device}::5900```
 
-In your own phone you can use the app AVNC and go to the localhost::5901
+In your own phone you can use the app AVNC and go to the localhost::5900
 
 Put your VNC password and you should be able to see the desktop.
