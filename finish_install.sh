@@ -1,5 +1,5 @@
-sudo systemctl enable gdm
-sudo systemctl start gdm
+# sudo systemctl enable gdm
+# sudo systemctl start gdm
 
 mkdir -p /data/data/com.termux/files/home/.vnc
 if [ ! -f /data/data/com.termux/files/home/.vnc/xstartup ]; then
