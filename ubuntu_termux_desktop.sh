@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Run as root user in Ubuntu in Termux
 apt-get update -y
-package_list=('dialog' 'nemo' 'nano' 'sudo' 'wget' 'git' 'pulseaudio' 'bash-completion' 'dbus-x11' 'compiz' 'compizconfig-settings-manager' 'libnotify-bin' 'gedit' 'ubuntu-gnome-desktop' 'gnome-calculator' 'gnome-core' 'gdm3' 'gnome-shell' 'gnome-terminal' 'gnome-screenshot' 'gnome-tweaks' 'gnome-shell-extension-dash-to-panel' 'gnome-tweak-tool' 'mate-desktop' 'net-tools' 'iputils-ping' 'xfonts-75dpi' 'xfonts-100dpi' 'fonts-symbola' 'metacity')
+package_list=('dialog' 'nemo' 'nano' 'sudo' 'wget' 'git' 'pulseaudio' 'bash-completion' 'dbus-x11' 'compiz' 'compizconfig-settings-manager' 'libnotify-bin' 'gedit' 'ubuntu-gnome-desktop' 'gnome-calculator' 'gnome-core' 'gdm3' 'gnome-shell' 'gnome-terminal' 'gnome-screenshot' 'gnome-tweaks' 'gnome-shell-extension-dash-to-panel' 'gnome-tweak-tool' 'mate-desktop' 'net-tools' 'iputils-ping' 'xfonts-75dpi' 'xfonts-100dpi' 'fonts-symbola' 'metacity' 'gnome-panel')
 for package in "${package_list[@]}"; do
   if ! which "${package}"; then
     apt-get install -y "${package}"
