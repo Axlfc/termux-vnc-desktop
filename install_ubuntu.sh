@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/env bash
 # To install Ubuntu in Termux Android App
 pkg update -y
-package_list=("iproute2" "proot" "wget" "git" "tsu" "proot-distro" "bash" "bzip2" "coreutils" "curl" "findutils" "gzip" "dnsutils" "ncurses-utils" "sed" "tar" "openssl" "xz-utils" "xorg")
+package_list=("iproute2" "proot" "wget" "git" "tsu" "proot-distro" "bash" "bzip2" "coreutils" "curl" "findutils" "gzip" "dnsutils" "ncurses-utils" "sed" "tar" "openssl" "xz-utils" "xorg" "x11-repo")
 for package in "${package_list[@]}"; do
   if ! which "${package}"; then
     pkg install -y "${package}"
