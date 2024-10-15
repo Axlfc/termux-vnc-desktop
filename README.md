@@ -59,6 +59,12 @@ _A bit more waiting..._
 
 _A bit of a bit of more waiting..._
 
+- Customize Desktop (optional, but recommended):
+
+```cd /data/data/com.termux/files/home/Documents/git/termux-vnc-desktop```
+```bash customize_desktop.sh```
+
+## Final steps, start your VNC Server
 
 ```vncserver :1 -geometry 1280x1024```
 
@@ -66,8 +72,8 @@ _A bit of a bit of more waiting..._
 
 (You can kill the vnc session with the command ```vncserver -kill :1``` 
 
-- Customize Desktop (optional, but recommended):
+Access your desktop via a VNC viewer app (Example: Remote Ripple in Windows) to the IP of your device::5901
 
-```cd /data/data/com.termux/files/home/Documents/git/termux-vnc-desktop```
-```bash customize_desktop.sh```
+In your own phone you can use the app AVNC and go to the localhost::5901
 
+Put your VNC password and you should be able to see the desktop.
