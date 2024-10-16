@@ -19,7 +19,6 @@ _I suggest setting static IP linked to your phone's MAC address in the router op
 
 ```git clone https://github.com/Axlfc/termux-vnc-desktop/```
 
-
 ```cd termux-vnc-desktop```
 
 ```chmod +x *```
@@ -28,7 +27,15 @@ _I suggest setting static IP linked to your phone's MAC address in the router op
 
 ```pd login ubuntu```
 
-```cd /data/data/com.termux/files/home/Documents/git/termux-vnc-desktop```
+```apt update -y && apt upgrade -y && apt install git -y```
+
+```mkdir Documents```
+
+```cd Documents```
+
+```git clone https://github.com/Axlfc/termux-vnc-desktop/```
+
+```cd termux-vnc-desktop```
 
 ```chmod +x *```
 
