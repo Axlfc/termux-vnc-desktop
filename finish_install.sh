@@ -28,7 +28,9 @@ mate-session
 fi
 
 # TODO: Add nemo-desktop startup in /data/data/com.termux/files/home/.bashrc TEST!!!
-echo "metacity & nemo-desktop > /dev/null 2>&1 &" >> /data/data/com.termux/files/home/.bashrc
+# TODO: Metacity
+echo "nemo-desktop > /dev/null 2>&1 &" >> /data/data/com.termux/files/home/.bashrc
 
 # TODO: Add .config/mimeapps.list https://raw.githubusercontent.com/daMichl/ubuntu-dotfiles/refs/heads/master/mimeapps.list
 wget -O ~/.config/mimeapps.list https://raw.githubusercontent.com/daMichl/ubuntu-dotfiles/refs/heads/master/mimeapps.list
+echo "
