@@ -69,6 +69,7 @@ _A bit of a bit of more waiting..._
 - Customize Desktop (optional, but recommended):
 
 ```cd /data/data/com.termux/files/home/Documents/git/termux-vnc-desktop```
+
 ```bash customize_desktop.sh```
 
 ## Final steps, start your VNC Server
