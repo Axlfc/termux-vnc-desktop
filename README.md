@@ -62,7 +62,7 @@ _A bit more waiting..._
 
 ```bash new_install.sh```
 
-```exit```
+```bash finish_install.sh```
 
 _A bit of a bit of more waiting..._
 
